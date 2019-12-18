@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import './App.css';
-import ClimaUbicacion from './components/ClimaUbicacion';
+import UbicacionLista from './components/UbicacionLista';
+
+const ciudades = [
+    "Mexico City,mx",
+    "Caracas,ve",
+    "Siwah,eg"
+];
 
 class App extends Component {
     render() {
         return (
             <Container>
                 <div className="App">
-                    <ClimaUbicacion></ClimaUbicacion>
+                    <UbicacionLista ciudades = {ciudades}></UbicacionLista>
                 </div>
             </Container>
         );
