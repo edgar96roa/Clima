@@ -35,9 +35,10 @@ class ClimaUbicacion extends Component {
     }
 
     render = () => {
+        const { onClimaUbicacionClick } = this.props;
         const { city, datos } = this.state;
         return (
-            <div className='climaUbicacionCont'>
+            <div className='climaUbicacionCont' onClick={onClimaUbicacionClick} >
                 <Ubicacion city={city} />
                 {datos ? <DatosDeClima datos={datos} /> : <CircularProgress />}
             </div>
@@ -46,7 +47,8 @@ class ClimaUbicacion extends Component {
 }
 
 ClimaUbicacion.propTypes = {
-    city: PropTypes.string
+    city: PropTypes.string,
+    onClimaUbicacionClick: PropTypes.func,
 }
 
 export default ClimaUbicacion;

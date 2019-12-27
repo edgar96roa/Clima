@@ -1,0 +1,13 @@
+.ubicacionLista {
+    background: ;
+}
+
+@media (max-width: 48em) {
+    .ubicacionLista{
+       background: blue;
+       max-height: 30vh;
+       overflow: auto;
+       margin-bottom: 20px;
+    }
+}
+

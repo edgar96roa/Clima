@@ -5,10 +5,8 @@
     "\\src",
     "\\src\\components",
     "\\src\\components\\ClimaUbicacion",
-    "\\src\\components\\ClimaUbicacion\\DatosDeClima",
     "\\src\\constants",
     "\\src\\services"
   ],
-  "SelectedNode": "\\src\\components\\UbicacionLista.js",
   "PreviewInSolutionExplorer": false
 }
