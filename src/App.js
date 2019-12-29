@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import './App.css';
 import UbicacionLista from './components/UbicacionLista';
+import PronosticoExtendido from './components/PronosticoExtendido';
 
 const ciudades = [
     "Mexico City,mx",
@@ -17,11 +18,19 @@ const ciudades = [
 ];
 
 class App extends Component {
+
+    constructor() {
+        super();
+        this.state = { city: '...'};
+    }
+
     handleSelectedUbicacion = city => {
+        this.setState({ city });
         console.log(`handleSelectedUbicacion ${city}`);
     }
 
     render() {
+        const { city } = this.state;
         return (
             <Container>
                 <Grid>
@@ -47,7 +56,10 @@ class App extends Component {
                         </Col>
                         <Col xs={12} md={6}>
                             <Paper>
-                                <div className="detalle"></div>
+                                <div className="detalle">
+                                    <PronosticoExtendido city={city}>
+                                    </PronosticoExtendido>
+                                </div>
                             </Paper>
                         </Col>
                     </Row>
