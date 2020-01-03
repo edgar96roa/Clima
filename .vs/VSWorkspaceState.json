@@ -4,9 +4,10 @@
     "\\src",
     "\\src\\components",
     "\\src\\components\\ClimaUbicacion",
-    "\\src\\constants",
+    "\\src\\components\\ClimaUbicacion\\DatosDeClima",
+    "\\src\\components\\PronosticoItem",
     "\\src\\services"
   ],
-  "SelectedNode": "\\src\\App.js",
+  "SelectedNode": "\\src\\components\\ClimaUbicacion\\DatosDeClima\\estilos.css",
   "PreviewInSolutionExplorer": false
 }

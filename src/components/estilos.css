@@ -1,13 +1,21 @@
 .ubicacionLista {
-    background: ;
+    background: red;
+    height: 91vh;
+    overflow: auto;
+    margin-bottom: 3%;
 }
 
 @media (max-width: 48em) {
-    .ubicacionLista{
-       background: blue;
-       max-height: 30vh;
-       overflow: auto;
-       margin-bottom: 20px;
+    .ubicacionLista {
+        max-height: 43vh;
+        min-width: 340px;
+        overflow: auto;
+        margin-bottom: 20px;
     }
 }
 
+.pronosticoTitulo {
+    color: darkblue;
+    text-align: center;
+    padding-top: 2%;
+}

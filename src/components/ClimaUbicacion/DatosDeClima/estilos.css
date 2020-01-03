@@ -74,6 +74,17 @@
 
 .detalle {
     background: #999;
-    height: 100vh;
-    width: 100%;
+    height: 91vh;
+    width: 94%;
+    overflow: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+@media (max-width: 48em) {
+    .detalle {
+        background: red;
+        height: 43vh;
+        min-width: 250px;
+    }
 }

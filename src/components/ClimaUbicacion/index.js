@@ -30,7 +30,6 @@ class ClimaUbicacion extends Component {
             //debugger;
             const datos = transformarClima(climaDatos);
             this.setState({ datos: datos });
-            console.log(climaDatos);
         });
     }
 
