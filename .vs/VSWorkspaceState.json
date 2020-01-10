@@ -2,12 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\components",
-    "\\src\\components\\ClimaUbicacion",
-    "\\src\\components\\ClimaUbicacion\\DatosDeClima",
-    "\\src\\components\\PronosticoItem",
-    "\\src\\services"
+    "\\src\\actions",
+    "\\src\\services",
+    "\\src\\store"
   ],
-  "SelectedNode": "\\src\\components\\ClimaUbicacion\\DatosDeClima\\estilos.css",
+  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }
