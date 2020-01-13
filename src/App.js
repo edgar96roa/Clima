@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
 import { Container } from '@material-ui/core';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Paper from '@material-ui/core/Paper';
@@ -9,9 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import './App.css';
-import UbicacionLista from './components/UbicacionLista';
+import UbicacionListaContainer from './containers/UbicacionListaContainer';
 import PronosticoExtendido from './components/PronosticoExtendido';
-import { setCity } from './actions';
 
 const ciudades = [
     "Mexico City,mx",
@@ -24,13 +22,6 @@ class App extends Component {
     constructor() {
         super();
         this.state = { city: null};
-    }
-
-    handleSelectedUbicacion = city => {
-        this.setState({ city });
-        console.log(`handleSelectedUbicacion ${city}`);
-
-        this.props.setCity(city);
     }
 
     render() {
@@ -52,9 +43,8 @@ class App extends Component {
                     </Row>
                     <Row>
                         <Col xs={12} md={6}>
-                            <UbicacionLista ciudades={ciudades}
-                                onSelectedUbicacion={this.handleSelectedUbicacion}>
-                            </UbicacionLista>
+                            <UbicacionListaContainer ciudades={ciudades}>
+                            </UbicacionListaContainer>
                         </Col>
                         <Col xs={12} md={6}>
                             <Paper>
@@ -74,10 +64,4 @@ class App extends Component {
     }
 }
 
-const mapDispatchToPropsActions = dispatch => ({
-    setCity: valor => dispatch(setCity(valor))
-});
-
-const AppConectada = connect(null, mapDispatchToPropsActions)(App);
-
-export default AppConectada;
+export default App;
