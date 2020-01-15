@@ -30,6 +30,17 @@ class PronosticoExtendido extends Component {
     }
 
     componentDidMount() {
+        this.actualizarCiudad(this.props.city);
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.city !== this.props.city){
+            this.setState({ pronosticoDatos: null });
+            this.actualizarCiudad(nextProps.city);
+        }
+    }
+
+    actualizarCiudad = city => {
         const urlPronostico = `${url}?q=${this.props.city}&appid=${apiKey}`;
 
         fetch(urlPronostico).then(datos => {
@@ -42,7 +53,7 @@ class PronosticoExtendido extends Component {
         });
     }
 
-    /*Muestra el pronóstico de varios días para una ciudad*/
+    /*Muestra el pronï¿½stico de varios dï¿½as para una ciudad*/
     mostrarPronosticoItemDias(pronosticoDatos) {
         return pronosticoDatos.map(pronostico => (
             <PronosticoItem
@@ -75,6 +86,7 @@ class PronosticoExtendido extends Component {
 
 PronosticoExtendido.propTypes = {
     city: PropTypes.string.isRequired,
+    pronosticoDatos: PropTypes.array,
 }
 
 export default PronosticoExtendido;

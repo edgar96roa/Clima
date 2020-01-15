@@ -11,7 +11,7 @@ const UbicacionLista = ({ ciudades, onSelectedUbicacion }) => {
     };
 
     //toma la cadena <<ciudades>> y mapea cada ciudad en un componente
-    const cadenaToComponente = (ciudades) => (
+    const cadenaToComponente = ciudades => (
         ciudades.map(city =>
             (
                 <ClimaUbicacion

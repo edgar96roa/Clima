@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import './App.css';
 import UbicacionListaContainer from './containers/UbicacionListaContainer';
-import PronosticoExtendido from './components/PronosticoExtendido';
+import PronosticoExtendidoContainer from './containers/PronosticoExtendidoContainer';
 
 const ciudades = [
     "Mexico City,mx",
@@ -19,13 +19,7 @@ const ciudades = [
 
 class App extends Component {
 
-    constructor() {
-        super();
-        this.state = { city: null};
-    }
-
     render() {
-        const { city } = this.state;
         return (
             <Container>
                 <Grid>
@@ -49,11 +43,7 @@ class App extends Component {
                         <Col xs={12} md={6}>
                             <Paper>
                                 <div className="detalle">
-                                    {
-                                        city === null ?
-                                            <h3 className="pronosticoTitulo">Da clic en alguna ciudad para mostrar su pron&oacute;stico</h3> :
-                                            <PronosticoExtendido city={city}></PronosticoExtendido>
-                                    }
+                                    <PronosticoExtendidoContainer></PronosticoExtendidoContainer>
                                 </div>
                             </Paper>
                         </Col>
