@@ -6,7 +6,6 @@ import './estilos.css';
 //toma el arreglo de ciudades en el componente padre y llama a cadenaToComponente
 const UbicacionLista = ({ ciudades, onSelectedUbicacion }) => {
     const handleClimaUbicacionClick = city => {
-        console.log("handleClimaUbicacionClick");
         onSelectedUbicacion(city);
     };
 

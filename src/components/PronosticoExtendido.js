@@ -33,12 +33,30 @@ class PronosticoExtendido extends Component {
         this.actualizarCiudad(this.props.city);
     }
 
-    componentWillReceiveProps(nextProps){
+    static getDerivedStateFromProps(props, state){
+        if(props.city !== state.city){
+            return{
+                city: props.city,
+            };
+        }
+        return null;
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.city !== this.state.city) {
+            this.setState({ pronosticoDatos: null });
+            this.actualizarCiudad(prevProps);
+        }
+      }
+
+    /*Esa función ha sido reemplazada por componentDidUpdate y getDerivedStateFromProps,
+    antes era componentWillReceiveProps pero fue deprecada en la version 16.3
+    componentDidUpdate(nextProps){
         if(nextProps.city !== this.props.city){
             this.setState({ pronosticoDatos: null });
             this.actualizarCiudad(nextProps.city);
         }
-    }
+    }*/
 
     actualizarCiudad = city => {
         const urlPronostico = `${url}?q=${this.props.city}&appid=${apiKey}`;
@@ -66,7 +84,7 @@ class PronosticoExtendido extends Component {
     }
 
     mostrarProgreso() {
-        return "Cargando";
+        return "Cargando...";
     }
 
     render() {
