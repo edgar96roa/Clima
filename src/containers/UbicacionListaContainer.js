@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setCity } from './../actions';
+import { setCiudadSeleccionada } from './../actions';
 import UbicacionLista from './../components/UbicacionLista';
 
 class UbicacionListaContainer extends Component{
@@ -24,11 +24,9 @@ UbicacionListaContainer.propTypes = {
     ciudades: PropTypes.array.isRequired
 };
 
-const mapDispatchToProps = dispatch => (
-    {
-        setCity: valor => dispatch(setCity(valor))
-    }
-);
+const mapDispatchToProps = dispatch => ({
+        setCity: valor => dispatch(setCiudadSeleccionada(valor))
+});
 
 /*
 const AppConectada = connect(null, mapDispatchToProps)(App);
