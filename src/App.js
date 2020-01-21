@@ -13,8 +13,7 @@ import PronosticoExtendidoContainer from './containers/PronosticoExtendidoContai
 
 const ciudades = [
     "Mexico City,mx",
-    "Caracas,ve",
-    "Siwah,eg"
+    "Caracas,ve"
 ];
 
 class App extends Component {

@@ -14,9 +14,10 @@ const UbicacionLista = ({ ciudades, onSelectedUbicacion }) => {
         ciudades.map(city =>
             (
                 <ClimaUbicacion
-                    key={city}
-                    city={city}
-                    onClimaUbicacionClick={() => handleClimaUbicacionClick(city)}
+                    key={city.key}
+                    city={city.name}
+                    onClimaUbicacionClick={() => handleClimaUbicacionClick(city.name)}
+                    datos={city.datos}
             />)
         )
     );
