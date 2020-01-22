@@ -10,7 +10,7 @@ export const cities = (state = {}, action) => {
             const { city, pronosticoDatos } = action.payload;
             // ...state crea una copia del estado del objeto
             // creamos el diccionario de ciudades, ej city: city1(pronostico, clima)
-            return { ...state, [city]: { ...state[city], pronosticoDatos}};
+            return { ...state, [city]: { ...state[city], pronosticoDatos, pronosticoDatosFecha: new Date()}};
         }
         case GET_CLIMA_CIUDAD: {
             const city = action.payload;

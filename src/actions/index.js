@@ -17,18 +17,29 @@ const urlClima = `https://api.openweathermap.org/data/2.5/weather`;
 
 export const setCiudadSeleccionada = payload => {
     
-    return dispatch => {
+    return (dispatch, getState) => {
         const urlPronostico = `${url}?q=${payload}&appid=${apiKey}`;
     
         //activar en el estado un indicador de busqueda de datos
         dispatch(setCity(payload)); //establece la ciudad de forma sincrona el edo
         
+        //devuelve el estado global de la app
+        const state = getState();
+
+        const fecha = state.cities[payload] && state.cities[payload].pronosticoDatosFecha;
+
+        const ahora = new Date();
+
+        if(fecha && (ahora - fecha) < 1*60*1000){
+            return;
+        }
+
         return fetch(urlPronostico).then(
             datos => (datos.json())
         ).then(
             climaDatos => {
                 const pronosticoDatos = transformarPronostico(climaDatos);
-                console.log(pronosticoDatos);
+                //console.log(pronosticoDatos);
 
                 //modificar el estado con el resultado de la promise (fetch)
                 dispatch(setPronosticoDatos({city: payload, pronosticoDatos}));

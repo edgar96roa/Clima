@@ -1,22 +1,23 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setCiudadSeleccionada, setClima } from './../actions';
+import * as actions from './../actions';
 import { getClimaCiudades, getCity } from './../reducers';
 import UbicacionLista from './../components/UbicacionLista';
 
 class UbicacionListaContainer extends Component{
     
     componentDidMount() {
-        const { setClima, setCity, ciudades, city } = this.props;
+        const { setClima, setCiudadSeleccionada, ciudades, city } = this.props;
         
         setClima(ciudades);
-        setCity(city);
+        setCiudadSeleccionada(city);
     }
     
 
     handleSelectedUbicacion = city => {
-        this.props.setCity(city);
+        this.props.setCiudadSeleccionada(city);
     }
     
     render(){
@@ -29,17 +30,19 @@ class UbicacionListaContainer extends Component{
 }
 
 UbicacionListaContainer.propTypes = {
-    setCity: PropTypes.func.isRequired,
+    setCiudadSeleccionada: PropTypes.func.isRequired,
+    setClima: PropTypes.func.isRequired,
     ciudades: PropTypes.array.isRequired,
     ciudadesClima: PropTypes.array,
     city: PropTypes.string.isRequired
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+/*const mapDispatchToProps = dispatch => ({
         setCity: valor => dispatch(setCiudadSeleccionada(valor)),
         //establece las ciudades dentro del array que le pasamos a UbicacionListaContainer
         setClima: ciudades => dispatch(setClima(ciudades))
-});
+});*/
 
 /*
 const AppConectada = connect(null, mapDispatchToProps)(App);
